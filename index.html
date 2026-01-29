@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Test Lad — Manual Software Testing & QA (Leeds)</title>
+  <meta name="description" content="Manual software tester in Leeds. Functional & non-functional QA across web and apps. Remote or in-house within a reasonable catchment." />
+
+  <style>
+    :root{
+      --bg:#0b2430;          /* deep teal */
+      --bg2:#081a22;         /* darker */
+      --card:#0f2f3e;        /* card teal */
+      --text:#f4fbff;        /* off-white */
+      --muted:#c8dde7;       /* muted text */
+      --accent:#f2c14e;      /* badge yellow */
+      --accent2:#6ee7ff;     /* light tech blue */
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1060px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px 900px at 20% 10%, #0f3a4c 0%, var(--bg) 45%, var(--bg2) 100%);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:14px;
+      color:var(--muted);
+      backdrop-filter: blur(8px);
+    }
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(8,26,34,.65);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.4px;
+    }
+    .brand img{
+      width:34px; height:34px; border-radius:10px; object-fit:cover;
+      border:1px solid var(--border);
+    }
+    .nav a{
+      text-decoration:none;
+      opacity:.92;
+    }
+    .nav-links{
+      display:flex; gap:16px; align-items:center;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      box-shadow: none;
+      text-decoration:none;
+      font-weight:700;
+    }
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(242,193,78,.95), rgba(242,193,78,.75));
+      color:#1a1a1a;
+      border-color: rgba(242,193,78,.9);
+    }
+
+    /* HERO */
+    .hero{
+      padding:54px 0 26px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:22px;
+      align-items:center;
+    }
+    .hero h1{
+      margin:10px 0 10px;
+      font-size:44px;
+      line-height:1.1;
+      letter-spacing:-.6px;
+    }
+    .hero p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:16px;
+      max-width:58ch;
+    }
+    .hero-cta{display:flex; gap:12px; flex-wrap:wrap}
+    .hero-card{
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-card .img{
+      width:100%;
+      aspect-ratio: 1 / 1;
+      background: rgba(255,255,255,.04);
+      display:block;
+      object-fit: cover;
+    }
+    .hero-card .cap{
+      padding:12px 14px;
+      color:var(--muted);
+      font-size:13px;
+      border-top:1px solid var(--border);
+    }
+
+    /* SECTIONS */
+    section{padding:28px 0}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      margin:0 0 14px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-.2px;
+    }
+    .section-title p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      max-width:60ch;
+    }
+
+    /* CARDS / GRID */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+    .tag{
+      display:inline-block;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(110,231,255,.12);
+      border:1px solid rgba(110,231,255,.25);
+      color:#d9f8ff;
+      margin-bottom:10px;
+    }
+
+    /* DETAILS */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:start;
+    }
+    .list{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .list li{
+      padding:8px 0;
+      border-top:1px dashed rgba(255,255,255,.14);
+    }
+    .list li:first-child{border-top:none; padding-top:0}
+
+    /* CONTACT */
+    .contact{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+    }
+    .contact .card{height:100%}
+    .small{font-size:13px; color:var(--muted)}
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.12);
+      padding:2px 6px;
+      border-radius:8px;
+    }
+
+    footer{
+      padding:22px 0 34px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .footer-inner{
+      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      border-top:1px solid var(--border);
+      padding-top:14px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px){
+      .hero-grid{grid-template-columns: 1fr; }
+      .hero h1{font-size:38px}
+      .grid{grid-template-columns: 1fr}
+      .two-col{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <img src="YOUR_LOGO_URL_HERE" alt="Test Lad logo" />
+        <a href="#top" aria-label="Go to top">TEST LAD</a>
+      </div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#contact">Contact</a>
+        <a class="btn primary" href="#contact">Book a chat</a>
+      </div>
+      <a class="btn primary" href="#contact">Book a chat</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="pill">Manual QA • Functional & Non-Functional • Leeds / Remote</div>
+        <h1>Manual software testing that finds real issues — fast.</h1>
+        <p>
+          I help teams ship confident releases by validating websites and apps against
+          requirements, user expectations, and QA best practices — across devices, browsers and platforms.
+        </p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#contact">Request availability</a>
+          <a class="btn" href="#services">See services</a>
+        </div>
+        <p class="small" style="margin-top:14px;">
+          Based in <strong>Leeds</strong>. Available for <strong>remote</strong> work or <strong>in-house</strong> within a reasonable catchment area.
+        </p>
+      </div>
+
+      <div class="hero-card" aria-label="Cross-device testing illustration">
+        <img class="img" src="YOUR_DEVICE_IMAGE_URL_HERE" alt="Illustration: overwhelmed tester surrounded by devices" />
+        <div class="cap">
+          <strong>Reality check:</strong> modern QA means phones, tablets, laptops, big screens — and everything in between.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>Clear, practical QA support — focused on risk, coverage, and usable reporting.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="tag">Functional QA</div>
+          <h3>Requirement validation</h3>
+          <p>
+            Confirm expected behaviour matches delivered behaviour. Clear steps to reproduce, expected vs actual,
+            and severity/priority aligned to business impact.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="tag">Non-Functional</div>
+          <h3>Quality beyond “does it work?”</h3>
+          <p>
+            Compatibility, usability, accessibility basics, content checks, edge cases, and sanity performance checks
+            (where appropriate).
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="tag">Cross-Platform</div>
+          <h3>Devices, browsers, breakpoints</h3>
+          <p>
+            Responsive testing across real-world device classes and browsers. Catch layout, input, and
+            interaction problems before users do.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>How I work</h2>
+        <p>Simple process, consistent outputs, no theatre.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>1) Understand expectations</h3>
+          <p>
+            I take the product expectations from you (tickets, acceptance criteria, designs, stakeholder notes),
+            then translate them into practical test coverage.
+          </p>
+          <ul class="list">
+            <li>Inputs: user stories, AC, designs, analytics, prior bug history</li>
+            <li>Define risk: what breaks revenue, trust, conversion, or support load</li>
+            <li>Agree scope: what’s in / out for this round</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>2) Test + report clearly</h3>
+          <p>
+            You get actionable results: what failed, how to reproduce, and why it matters.
+            I’ll work in your tooling (or provide a simple shared report).
+          </p>
+          <ul class="list">
+            <li>Defects: steps, evidence, environment, expected vs actual</li>
+            <li>Coverage notes: what was tested and what was not</li>
+            <li>Quick comms: short check-ins, no status-meeting drag</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section id="coverage">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Coverage & experience</h2>
+        <p>Over a decade of in-house and agency QA across digital products for recognised brands.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Typical coverage</h3>
+          <ul class="list">
+            <li>Web apps & websites (desktop + responsive)</li>
+            <li>Mobile web & app flows (as scoped)</li>
+            <li>Regression / smoke testing for releases</li>
+            <li>Bug triage support and release confidence notes</li>
+            <li>UAT support for stakeholders</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Tooling (adaptable)</h3>
+          <p class="small" style="margin:0 0 10px;">
+            Placeholder — replace with your actual set.
+          </p>
+          <ul class="list">
+            <li>Jira / Trello / Asana (or your preferred tracker)</li>
+            <li>Test evidence: screenshots, screen recordings, console notes</li>
+            <li>Device/browser coverage: real devices + emulation as agreed</li>
+            <li>Collab: Slack/Teams, short Loom-style updates if useful</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Tell me what you’re shipping, your timeframe, and what “done” looks like.</p>
+      </div>
+
+      <div class="contact">
+        <div class="card">
+          <h3>Quick enquiry template</h3>
+          <p class="small">
+            Copy/paste this into an email or message:
+          </p>
+          <p class="small">
+            <span class="kbd">Project</span>: <br/>
+            <span class="kbd">Platform</span> (web/app): <br/>
+            <span class="kbd">Key flows</span>: <br/>
+            <span class="kbd">Deadline</span>: <br/>
+            <span class="kbd">Access</span> (staging/logins): <br/>
+            <span class="kbd">Tracking tool</span> (Jira etc): <br/>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Get in touch</h3>
+          <p>
+            <strong>Email:</strong> <a href="mailto:YOUR_EMAIL_HERE">YOUR_EMAIL_HERE</a><br/>
+            <strong>LinkedIn:</strong> <a href="YOUR_LINKEDIN_URL_HERE" target="_blank" rel="noopener">YOUR_LINKEDIN_URL_HERE</a><br/>
+            <strong>Location:</strong> Leeds (remote-friendly)
+          </p>
+          <p class="small" style="margin-top:12px;">
+            If you’re in Leeds / Yorkshire, in-house days can be arranged depending on distance and schedule.
+          </p>
+          <a class="btn primary" href="mailto:YOUR_EMAIL_HERE" style="margin-top:10px;">Email me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap footer-inner">
+      <div>© <span id="y"></span> Test Lad. Manual QA & Software Testing (Leeds).</div>
+      <div class="small">Built lean. Focused on quality. No nonsense.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
