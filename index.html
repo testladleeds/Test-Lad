@@ -1,447 +1,229 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Test Lad — Manual Software Testing & QA (Leeds)</title>
-  <meta name="description" content="Manual software tester in Leeds. Functional & non-functional QA across web and apps. Remote or in-house within a reasonable catchment." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Test Lad — Freelance QA</title>
 
   <style>
     :root{
-      --bg:#0b2430;          /* deep teal */
-      --bg2:#081a22;         /* darker */
-      --card:#0f2f3e;        /* card teal */
-      --text:#f4fbff;        /* off-white */
-      --muted:#c8dde7;       /* muted text */
-      --accent:#f2c14e;      /* badge yellow */
-      --accent2:#6ee7ff;     /* light tech blue */
-      --border:rgba(255,255,255,.12);
-      --shadow: 0 14px 40px rgba(0,0,0,.35);
-      --radius: 18px;
-      --max: 1060px;
+      --bg: #F2D14D;
+      --text: #000000;
+      --max: 980px;
+      --gap: 24px;
+      --pad: 22px;
+
+      /* Header font (Cooper Black requested; supply your own font file if needed) */
+      --font-header: "Cooper Black", "CooperBlack", "Cooper Std Black", Georgia, "Times New Roman", serif;
+      --font-body: Arial, Helvetica, sans-serif;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
     body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background: radial-gradient(1200px 900px at 20% 10%, #0f3a4c 0%, var(--bg) 45%, var(--bg2) 100%);
-      line-height:1.5;
-    }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
-    .pill{
-      display:inline-flex; gap:10px; align-items:center;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.06);
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:14px;
-      color:var(--muted);
-      backdrop-filter: blur(8px);
-    }
-    .nav{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(8,26,34,.65);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px 0;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800; letter-spacing:.4px;
-    }
-    .brand img{
-      width:34px; height:34px; border-radius:10px; object-fit:cover;
-      border:1px solid var(--border);
-    }
-    .nav a{
-      text-decoration:none;
-      opacity:.92;
-    }
-    .nav-links{
-      display:flex; gap:16px; align-items:center;
-      font-size:14px;
-      color:var(--muted);
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.08);
-      box-shadow: none;
-      text-decoration:none;
-      font-weight:700;
-    }
-    .btn.primary{
-      background: linear-gradient(180deg, rgba(242,193,78,.95), rgba(242,193,78,.75));
-      color:#1a1a1a;
-      border-color: rgba(242,193,78,.9);
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* HERO */
-    .hero{
-      padding:54px 0 26px;
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px var(--pad) 92px; /* extra bottom padding so footer doesn't cover text */
     }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:22px;
-      align-items:center;
+
+    /* HEADER */
+    header{
+      text-align: center;
+      margin-top: 8px;
+      margin-bottom: 22px;
+      line-height: 1.05;
+      font-family: var(--font-header);
     }
-    .hero h1{
-      margin:10px 0 10px;
-      font-size:44px;
-      line-height:1.1;
-      letter-spacing:-.6px;
+    .h1{ font-size: clamp(28px, 4.2vw, 44px); font-weight: 900; margin: 0; }
+    .h2{ font-size: clamp(52px, 7.2vw, 86px); font-weight: 900; margin: 4px 0 6px; }
+    .h3{ font-size: clamp(22px, 3.3vw, 34px); font-weight: 900; margin: 0; }
+
+    /* PROMO ROW */
+    .promo{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin: 18px 0 26px;
     }
-    .hero p{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:16px;
-      max-width:58ch;
+    .promo-burst{
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      display: block;
     }
-    .hero-cta{display:flex; gap:12px; flex-wrap:wrap}
-    .hero-card{
-      background: rgba(255,255,255,.06);
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
+    .promo-rate{
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      font-family: var(--font-body);
+      color: var(--text);
     }
-    .hero-card .img{
-      width:100%;
-      aspect-ratio: 1 / 1;
-      background: rgba(255,255,255,.04);
-      display:block;
+    .rate{
+      font-weight: 700; /* Arial Bold */
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .rate-copy{
+      font-weight: 700; /* Arial Bold */
+      font-size: clamp(16px, 2.2vw, 20px);
+      line-height: 1.1;
+      max-width: 220px;
+    }
+
+    /* MAIN SECTIONS (mirror layout) */
+    .section{
+      display: grid;
+      grid-template-columns: 2fr 1fr; /* 2/3 and 1/3 */
+      gap: var(--gap);
+      align-items: center;
+      margin: 22px 0;
+    }
+    .section.reverse{
+      grid-template-columns: 1fr 2fr; /* 1/3 and 2/3 */
+    }
+
+    .copy{
+      font-family: var(--font-body);
+      font-size: clamp(16px, 2.25vw, 20px);
+      line-height: 1.35;
+      margin: 0;
+      white-space: pre-line; /* respects line breaks in text */
+    }
+
+    .side-image{
+      width: 100%;
+      max-width: 260px;
+      aspect-ratio: 3 / 4;
       object-fit: cover;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px; /* subtle, not framed */
     }
-    .hero-card .cap{
-      padding:12px 14px;
-      color:var(--muted);
-      font-size:13px;
-      border-top:1px solid var(--border);
-    }
-
-    /* SECTIONS */
-    section{padding:28px 0}
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
-      margin:0 0 14px;
-    }
-    .section-title h2{
-      margin:0;
-      font-size:22px;
-      letter-spacing:-.2px;
-    }
-    .section-title p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      max-width:60ch;
+    .reverse .side-image{
+      max-width: 260px;
     }
 
-    /* CARDS / GRID */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    .card{
-      padding:16px;
-      border-radius: var(--radius);
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.06);
-    }
-    .card h3{margin:0 0 8px; font-size:16px}
-    .card p{margin:0; color:var(--muted); font-size:14px}
-    .tag{
-      display:inline-block;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.2px;
-      padding:6px 10px;
-      border-radius:999px;
-      background: rgba(110,231,255,.12);
-      border:1px solid rgba(110,231,255,.25);
-      color:#d9f8ff;
-      margin-bottom:10px;
-    }
-
-    /* DETAILS */
-    .two-col{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      align-items:start;
-    }
-    .list{
-      margin:10px 0 0;
-      padding:0;
-      list-style:none;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .list li{
-      padding:8px 0;
-      border-top:1px dashed rgba(255,255,255,.14);
-    }
-    .list li:first-child{border-top:none; padding-top:0}
-
-    /* CONTACT */
-    .contact{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:14px;
-    }
-    .contact .card{height:100%}
-    .small{font-size:13px; color:var(--muted)}
-    .kbd{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: rgba(0,0,0,.25);
-      border:1px solid rgba(255,255,255,.12);
-      padding:2px 6px;
-      border-radius:8px;
-    }
-
+    /* FOOTER BUTTONS */
     footer{
-      padding:22px 0 34px;
-      color:var(--muted);
-      font-size:13px;
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      background: rgba(242, 209, 77, 0.92);
+      backdrop-filter: blur(6px);
+      border-top: 2px solid rgba(0,0,0,0.12);
+      padding: 12px var(--pad);
     }
     .footer-inner{
-      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
-      border-top:1px solid var(--border);
-      padding-top:14px;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+    }
+    .btn{
+      appearance: none;
+      border: 2px solid #000;
+      background: transparent;
+      color: #000;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 18px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+      user-select: none;
+    }
+    .btn:active{
+      transform: translateY(1px);
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 860px){
-      .hero-grid{grid-template-columns: 1fr; }
-      .hero h1{font-size:38px}
-      .grid{grid-template-columns: 1fr}
-      .two-col{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-      .nav-links{display:none}
+    /* MOBILE */
+    @media (max-width: 720px){
+      .promo{
+        flex-direction: column;
+        text-align: center;
+      }
+      .promo-rate{
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      .rate-copy{ max-width: none; }
+
+      .section, .section.reverse{
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .side-image{
+        max-width: 320px;
+        aspect-ratio: 16 / 9;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- NAV -->
-  <div class="nav">
-    <div class="wrap nav-inner">
-      <div class="brand">
-        <img src="logo.png" alt="Test Lad logo" />
-        <a href="#top" aria-label="Go to top">TEST LAD</a>
-      </div>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
-        <a href="#coverage">Coverage</a>
-        <a href="#contact">Contact</a>
-        <a class="btn primary" href="#contact">Book a chat</a>
-      </div>
-      <a class="btn primary" href="#contact">Book a chat</a>
-    </div>
-  </div>
+  <main class="wrap">
+    <header>
+      <p class="h1">Freelance QA Resource</p>
+      <p class="h2">Test Lad</p>
+      <p class="h3">Leeds-Based Manual Software Tester</p>
+    </header>
 
-  <!-- HERO -->
-  <main id="top" class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="pill">Manual QA • Functional & Non-Functional • Leeds / Remote</div>
-        <h1>Manual software testing that finds real issues — fast.</h1>
-        <p>
-          I help teams ship confident releases by validating websites and apps against
-          requirements, user expectations, and QA best practices — across devices and browsers.
-        </p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#contact">Request availability</a>
-          <a class="btn" href="#services">See services</a>
-        </div>
-        <p class="small" style="margin-top:14px;">
-          Based in <strong>Leeds</strong>. Available for <strong>remote</strong> work or <strong>in-house</strong> within a reasonable catchment area.
-        </p>
+    <!-- PROMO -->
+    <section class="promo" aria-label="Promo">
+      <!-- Replace promo-burst.png with your own star/burst image -->
+      <img class="promo-burst" src="promo-burst.png" alt="New Year Offer!" />
+      <div class="promo-rate">
+        <div class="rate">£250/day</div>
+        <div class="rate-copy">for all bookings<br>made before<br>March 2026!</div>
       </div>
+    </section>
 
-      <div class="hero-card" aria-label="Cross-device testing illustration">
-        <img class="img" src="devices.png" alt="Illustration: overwhelmed tester surrounded by devices" />
-        <div class="cap">
-          <strong>Reality check:</strong> modern QA means phones, tablets, laptops, big screens — and each of their respective nuances.
-        </div>
-      </div>
-    </div>
+    <!-- SECTION 1 (text 2/3 left, image 1/3 right) -->
+    <section class="section" aria-label="Section 1">
+      <p class="copy">
+This Lad has over a decade in Test.
+And with most of that spent in Agencies, I’m used to pressure.
+Whether it’s a straight-up “Does this work?!” or the nuance of “...BUT DOES IT WORK ON EVERYTHING???” - been there, done it.
+      </p>
+      <!-- Replace section-1.png with your own image -->
+      <img class="side-image" src="section-1.png" alt="Section 1 image" />
+    </section>
+
+    <!-- SECTION 2 (image 1/3 left, text 2/3 right) -->
+    <section class="section reverse" aria-label="Section 2">
+      <!-- Replace section-2.png with your own image -->
+      <img class="side-image" src="section-2.png" alt="Section 2 image" />
+      <p class="copy">
+You can fire me the details and leave me to work remote, or get me on-site alongside your Project Managers, Devs and whoever else.
+This ain’t no Click Run And Sit Back automation, this is hands-on, confirming ad hoc specifics and real-world expectations.
+This time tomorrow, your product could be a lot safer - hit me up.
+      </p>
+    </section>
   </main>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Services</h2>
-        <p>Clear, practical QA support — focused on risk, coverage, and usable reporting.</p>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <div class="tag">Functional QA</div>
-          <h3>Requirement validation</h3>
-          <p>
-            Confirm expected behaviour matches delivered behaviour. Clear steps to reproduce, expected vs actual,
-            and severity/priority aligned to business impact.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="tag">Non-Functional</div>
-          <h3>Quality beyond “does it work?”</h3>
-          <p>
-            Compatibility, usability, accessibility basics, content checks, edge cases, and sanity performance checks
-            (where appropriate).
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="tag">Cross-Platform</div>
-          <h3>Devices, browsers, breakpoints</h3>
-          <p>
-            Responsive testing across real-world device classes and browsers. Catch layout, input, and
-            interaction problems before users do.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- APPROACH -->
-  <section id="approach">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>How I work</h2>
-        <p>Simple process, consistent outputs, no theatre.</p>
-      </div>
-
-      <div class="two-col">
-        <div class="card">
-          <h3>1) Understand expectations</h3>
-          <p>
-            I take the product expectations from you (tickets, acceptance criteria, designs, stakeholder notes),
-            then translate them into practical test coverage.
-          </p>
-          <ul class="list">
-            <li>Inputs: User Stories, Acceptance Criteria, designs, analytics, prior bug history</li>
-            <li>Define risk: what breaks revenue, trust, conversion, or support load</li>
-            <li>Agree scope: what’s in / out for this round</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>2) Test + report clearly</h3>
-          <p>
-            You get actionable results: what failed, how to reproduce, and why it matters.
-            I’ll work in your tooling (or provide a simple shared report).
-          </p>
-          <ul class="list">
-            <li>Defects: steps, evidence, environment, expected vs actual</li>
-            <li>Coverage notes: what was tested and what was not</li>
-            <li>Quick comms: short check-ins, no status-meeting drag</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COVERAGE -->
-  <section id="coverage">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Coverage & experience</h2>
-        <p>Over a decade of in-house and agency QA across digital products for recognised brands.</p>
-      </div>
-
-      <div class="two-col">
-        <div class="card">
-          <h3>Typical coverage</h3>
-          <ul class="list">
-            <li>Web apps & websites (desktop + responsive)</li>
-            <li>Mobile web & app flows (as scoped)</li>
-            <li>Regression / smoke testing for releases</li>
-            <li>Bug triage support and release confidence notes</li>
-            <li>UAT support for stakeholders</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Tooling (adaptable)</h3>
-          <p class="small" style="margin:0 0 10px;">
-            Placeholder — replace with your actual set.
-          </p>
-          <ul class="list">
-            <li>Jira / Trello / Asana (or your preferred tracker)</li>
-            <li>Test evidence: screenshots, screen recordings, console notes</li>
-            <li>Device/browser coverage: real devices + emulation as agreed</li>
-            <li>Collab: Slack/Teams, short Loom-style updates if useful</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Tell me what you’re shipping, your timeframe, and what “done” looks like.</p>
-      </div>
-
-      <div class="contact">
-        <div class="card">
-          <h3>Quick enquiry template</h3>
-          <p class="small">
-            Copy/paste this into an email or message:
-          </p>
-          <p class="small">
-            <span class="kbd">Project</span>: <br/>
-            <span class="kbd">Platform</span> (web/app): <br/>
-            <span class="kbd">Key flows</span>: <br/>
-            <span class="kbd">Deadline</span>: <br/>
-            <span class="kbd">Access</span> (staging/logins): <br/>
-            <span class="kbd">Tracking tool</span> (Jira etc): <br/>
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Get in touch</h3>
-          <p>
-            <strong>Email:</strong> <a href="mailto:testladltd@gmail.com">testladltd@gmail.com</a><br/>
-            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/stevewattsleeds/" target="_blank" rel="noopener">https://www.linkedin.com/in/stevewattsleeds/</a><br/>
-            <strong>Location:</strong> Leeds (remote-friendly)
-          </p>
-          <p class="small" style="margin-top:12px;">
-            If you’re in Leeds / Yorkshire, in-house days can be arranged depending on distance and schedule.
-          </p>
-          <a class="btn primary" href="mailto:testladltd@gmail.com" style="margin-top:10px;">Email me</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
-    <div class="wrap footer-inner">
-      <div>© <span id="y"></span> Test Lad. Manual QA & Software Testing (Leeds).</div>
-      <div class="small">Built lean. Focused on quality. No nonsense.</div>
+    <div class="footer-inner">
+      <a class="btn" href="tel:07561107909">Call</a>
+      <a class="btn" href="mailto:testladltd@gmail.com">Email</a>
     </div>
   </footer>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
