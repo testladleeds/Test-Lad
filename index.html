@@ -6,6 +6,17 @@
   <title>Test Lad — Freelance QA</title>
 
   <style>
+    /* =========================
+       FONT (Mobile-safe)
+    ========================== */
+    @font-face {
+      font-family: "Cooper Black";
+      src: url("fonts/CooperBlack.woff2") format("woff2");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --bg: #F2D14D;
       --text: #000;
@@ -30,7 +41,9 @@
       padding: 32px 24px 120px;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================== */
     header {
       text-align: center;
       font-family: "Cooper Black", Georgia, serif;
@@ -53,7 +66,9 @@
       margin: 0;
     }
 
-    /* PROMO */
+    /* =========================
+       PROMO
+    ========================== */
     .promo {
       display: flex;
       align-items: center;
@@ -71,9 +86,8 @@
 
     .promo-rate {
       display: flex;
-      align-items: center;
+      align-items: center; /* vertical centring fix */
       gap: 16px;
-      font-family: Arial, Helvetica, sans-serif;
       font-weight: 700;
     }
 
@@ -88,7 +102,9 @@
       line-height: 1.2;
     }
 
-    /* CONTENT SECTIONS */
+    /* =========================
+       CONTENT SECTIONS
+    ========================== */
     .section {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -116,7 +132,9 @@
       border-radius: 10px;
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================== */
     footer {
       position: fixed;
       bottom: 0;
@@ -150,7 +168,9 @@
       min-width: 120px;
     }
 
-    /* MOBILE */
+    /* =========================
+       MOBILE
+    ========================== */
     @media (max-width: 720px) {
       .promo {
         flex-direction: column;
@@ -188,7 +208,7 @@
       <img
         class="promo-burst"
         src="promo-burst.png"
-        alt="New Year Offer!"
+        alt="Limited time offer"
       >
 
       <div class="promo-rate">
@@ -209,20 +229,12 @@ And with most of that spent in Agencies, I’m used to pressure.
 Whether it’s a straight-up “Does this work?!” or the nuance of “...BUT DOES IT WORK ON EVERYTHING???” - been there, done it.
       </p>
 
-      <img
-        class="side-image"
-        img src="section-1.png"
-        alt="those essential desktop checks"
-      >
+      <img class="side-image" src="section-1.png" alt="">
     </section>
 
     <!-- SECTION 2 -->
     <section class="section reverse">
-      <img
-        class="side-image"
-        img src="section-2.png"
-        alt="and of course, the devices"
-      >
+      <img class="side-image" src="section-2.png" alt="">
 
       <p class="copy">
 You can fire me the details and leave me to work remote, or get me on-site alongside your Project Managers, Devs and whoever else.
