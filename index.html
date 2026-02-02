@@ -119,6 +119,47 @@
       border-radius: 10px;
     }
 
+    /* NEW: LOGO STRIP */
+    .tested-for {
+      text-align: center;
+      margin: 36px 0 10px;
+      font-weight: 700; /* Arial Bold */
+      font-size: clamp(18px, 2.4vw, 22px);
+    }
+
+    .logo-grid {
+      display: grid;
+      gap: 14px;
+      margin: 12px 0 6px;
+    }
+
+    .logo-row {
+      display: grid;
+      gap: 14px;
+      align-items: center;
+      justify-items: center;
+    }
+
+    /* 5 logos first row, 4 logos second row */
+    .logo-row.row-1 { grid-template-columns: repeat(5, 1fr); }
+    .logo-row.row-2 { grid-template-columns: repeat(4, 1fr); }
+
+    .logo {
+      width: 100%;
+      max-width: 140px;
+      height: 52px;
+      object-fit: contain;
+      display: block;
+      filter: none; /* keep as-is (black text requirement is for text, logos stay logos) */
+    }
+
+    .many-more {
+      text-align: center;
+      margin: 10px 0 0;
+      font-weight: 700; /* Arial Bold */
+      font-size: clamp(18px, 2.4vw, 22px);
+    }
+
     /* FOOTER */
     footer {
       position: fixed;
@@ -181,6 +222,11 @@
       .side-image {
         max-width: 320px;
       }
+
+      /* Logos: scale to fit smaller screens */
+      .logo-row.row-1 { grid-template-columns: repeat(2, 1fr); }
+      .logo-row.row-2 { grid-template-columns: repeat(2, 1fr); }
+      .logo { max-width: 160px; height: 48px; }
     }
   </style>
 </head>
@@ -228,6 +274,28 @@ This ain’t no Click Run And Sit Back automation, this is hands-on, confirming 
 This time tomorrow, your product could be a lot safer - hit me up.
       </p>
     </section>
+
+    <!-- NEW: I'VE TESTED FOR... + LOGOS -->
+    <div class="tested-for">I've tested for...</div>
+
+    <section class="logo-grid" aria-label="Client logos">
+      <div class="logo-row row-1" aria-label="Row 1 logos">
+        <img class="logo" src="logos/asda.png" alt="Asda">
+        <img class="logo" src="logos/uefa.png" alt="UEFA">
+        <img class="logo" src="logos/medical-protection.png" alt="Medical Protection">
+        <img class="logo" src="logos/capit.png" alt="Capit">
+        <img class="logo" src="logos/lner.png" alt="LNER">
+      </div>
+
+      <div class="logo-row row-2" aria-label="Row 2 logos">
+        <img class="logo" src="logos/hm.png" alt="H&amp;M">
+        <img class="logo" src="logos/letterland.png" alt="Letterland">
+        <img class="logo" src="logos/wella.png" alt="Wella">
+        <img class="logo" src="logos/scottish-book-trust.png" alt="Scottish Book Trust">
+      </div>
+    </section>
+
+    <div class="many-more">...and many more!</div>
 
   </main>
 
