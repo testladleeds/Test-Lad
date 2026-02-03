@@ -25,13 +25,12 @@
     .wrap {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 32px 24px 120px;
+      padding: 32px 24px 140px; /* bottom padding so footer doesn't overlap content */
     }
 
     /* HEADER */
     header {
       text-align: center;
-      /* System-safe “Cooper-ish” rounded headline stack */
       font-family: ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", "Segoe UI",
                    system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
       line-height: 1.05;
@@ -74,7 +73,7 @@
 
     .promo-rate {
       display: flex;
-      align-items: center; /* keeps £250/day vertically centered to the right-hand copy */
+      align-items: center; /* vertical centring fix */
       gap: 16px;
       font-weight: 700; /* Arial Bold */
     }
@@ -119,45 +118,29 @@
       border-radius: 10px;
     }
 
-    /* NEW: LOGO STRIP */
-    .tested-for {
-      text-align: center;
-      margin: 36px 0 10px;
-      font-weight: 700; /* Arial Bold */
-      font-size: clamp(18px, 2.4vw, 22px);
+    /* LONG COPY (below section 2) */
+    .long-copy {
+      margin: 10px 0 36px;
+      font-size: clamp(16px, 2.3vw, 20px);
+      line-height: 1.45;
     }
 
-    .logo-grid {
-      display: grid;
-      gap: 14px;
-      margin: 12px 0 6px;
+    .long-copy p {
+      margin: 0 0 18px;
     }
 
-    .logo-row {
-      display: grid;
-      gap: 14px;
-      align-items: center;
-      justify-items: center;
+    .long-copy p:last-child {
+      margin-bottom: 0;
     }
 
-    /* 5 logos first row, 4 logos second row */
-    .logo-row.row-1 { grid-template-columns: repeat(5, 1fr); }
-    .logo-row.row-2 { grid-template-columns: repeat(4, 1fr); }
-
-    .logo {
-      width: 100%;
-      max-width: 140px;
-      height: 52px;
-      object-fit: contain;
-      display: block;
-      filter: none; /* keep as-is (black text requirement is for text, logos stay logos) */
+    .long-copy a {
+      color: #000;
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
-    .many-more {
-      text-align: center;
-      margin: 10px 0 0;
-      font-weight: 700; /* Arial Bold */
-      font-size: clamp(18px, 2.4vw, 22px);
+    .long-copy a:visited {
+      color: #000;
     }
 
     /* FOOTER */
@@ -222,11 +205,6 @@
       .side-image {
         max-width: 320px;
       }
-
-      /* Logos: scale to fit smaller screens */
-      .logo-row.row-1 { grid-template-columns: repeat(2, 1fr); }
-      .logo-row.row-2 { grid-template-columns: repeat(2, 1fr); }
-      .logo { max-width: 160px; height: 48px; }
     }
   </style>
 </head>
@@ -260,42 +238,33 @@ This Lad has over a decade in Test.
 And with most of that spent in Agencies, I’m used to pressure.
 Whether it’s a straight-up “Does this work?!” or the nuance of “...BUT DOES IT WORK ON EVERYTHING???” - been there, done it.
       </p>
-
       <img class="side-image" src="section-1.png" alt="">
     </section>
 
     <!-- SECTION 2 -->
     <section class="section reverse" aria-label="Section 2">
       <img class="side-image" src="section-2.png" alt="">
-
       <p class="copy">
 You can fire me the details and leave me to work remote, or get me on-site alongside your Project Managers, Devs and whoever else.
-This ain’t no Click Run And Sit Back automation, this is hands-on, confirming ad hoc specifics and real-world expectations.
+This ain’t no Click "Run" And Sit Back automation, this is hands-on, confirming ad hoc specifics and real-world expectations.
 This time tomorrow, your product could be a lot safer - hit me up.
       </p>
     </section>
 
-    <!-- NEW: I'VE TESTED FOR... + LOGOS -->
-    <div class="tested-for">I've tested for...</div><br>
+    <!-- NEW LONG COPY (under Section 2, above footer buttons) -->
+    <section class="long-copy" aria-label="More details">
+      <p>Whether you've got pre-existing User Stories and Test Scripts or need the whole shebang writing from scratch, I'm down. End-of-project Test Reports to put minds at ease? Just ask.</p>
 
-    <section class="logo-grid" aria-label="Client logos">
-      <div class="logo-row row-1" aria-label="Row 1 logos">
-        <img class="logo" img src="asdamoney-logo.png" alt="Asda">
-        <img class="logo" img src="uefa-logo.png" alt="UEFA">
-        <img class="logo" img src="medicalprotection-logo.png" alt="Medical Protection">
-        <img class="logo" img src="capit-logo.png" alt="Capit">
-        <img class="logo" img src="lner-logo.png" alt="LNER">
-      </div>
+      <p>Need someone who's willing to give Every staging environment and Every Damn Browser the same effort and attention? "Effort and Attention" is my middle name! Well, it's James, but you get me...</p>
 
-      <div class="logo-row row-2" aria-label="Row 2 logos">
-        <img class="logo" img src="handm-logo.png" alt="H&amp;M">
-        <img class="logo" img src="letterland-logo.png" alt="Letterland">
-        <img class="logo" img src="wella-logo.png" alt="Wella">
-        <img class="logo" img src="scottishbooktrust-logo.png" alt="Scottish Book Trust">
-      </div>
+      <p>Let me know your preference of working, I'm flexible and experienced across a range of reporting platforms and methodologies.</p>
+
+      <p>We can keep it Functional, or, say the word and Non-Functional Testing can be unleashed! I've helped brands achieve <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG</a> standing, sped up site performance, helped improve UX/UI, and even re-written cross-site copy when needed.</p>
+
+      <p>Feel free to drop me into a team to hit-the-ground-running, or collaborate with your in-house Testers on whatever they need (I mean, unless it's Automation, I ain't the lad for that sorry).</p>
+
+      <p>It all starts with a tap of that button down there...</p>
     </section>
-
-    <div class="many-more"><br>...and many more!</div>
 
   </main>
 
