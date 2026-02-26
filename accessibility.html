@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessibility Testing — Test Lad</title>
+
+  <style>
+    :root {
+      --bg: #F2D14D;
+      --text: #000;
+      --max-width: 900px;
+      --sticky-footer-h: 96px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 32px 24px calc(var(--sticky-footer-h) + 48px);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    header h1 {
+      font-size: clamp(36px, 6vw, 60px);
+      margin: 0;
+      font-weight: 900;
+    }
+
+    header p {
+      font-size: clamp(18px, 2.5vw, 22px);
+      margin-top: 12px;
+      font-weight: 600;
+    }
+
+    .content {
+      font-size: clamp(16px, 2.2vw, 20px);
+      line-height: 1.6;
+    }
+
+    .content p {
+      margin-bottom: 28px;
+    }
+
+    .price-box {
+      margin: 48px 0;
+      padding: 24px;
+      border: 2px solid #000;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(242, 209, 77, 0.97);
+      border-top: 2px solid rgba(0,0,0,0.15);
+      padding: 16px;
+    }
+
+    .footer-actions {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 2px solid #000;
+      background: transparent;
+      color: #000;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      min-width: 160px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="wrap">
+
+  <header>
+    <h1>Accessibility Testing</h1>
+    <p>Practical WCAG audits. No fluff. Just clarity.</p>
+  </header>
+
+  <section class="content">
+
+    <p>
+Accessibility isn’t a “nice to have”. It’s not a final polish. It’s not a plugin.
+It’s fundamental.
+    </p>
+
+    <p>
+For over a decade I’ve worked in digital teams where accessibility was either taken seriously — or ignored until it became a problem.
+Ignoring it is risky. Legally. Commercially. Ethically.
+    </p>
+
+    <p>
+I audit websites against WCAG (Web Content Accessibility Guidelines), currently aligned with WCAG 2.1 standards, identifying where your product does — and doesn’t — meet expected compliance levels.
+    </p>
+
+    <p>
+That means:
+• Keyboard navigation testing  
+• Screen reader compatibility checks  
+• Colour contrast validation  
+• Focus state verification  
+• Semantic structure review  
+• Form and error handling accessibility  
+• Real-world usability assessment beyond automated tools  
+    </p>
+
+    <p>
+Automated tools catch maybe 30–40% of issues. The rest require manual review, experience, and context.
+That’s where I come in.
+    </p>
+
+    <p>
+You’ll receive a structured report outlining:
+• Each issue  
+• The relevant WCAG reference  
+• Severity  
+• Recommended fix guidance  
+• Evidence screenshots where useful  
+    </p>
+
+    <p>
+No fear tactics. No checkbox theatre.
+Just clear, prioritised insight so your developers can act.
+    </p>
+
+    <div class="price-box">
+      WCAG Audit from £500  
+      <br><br>
+      *Entry-level pricing for small sites.  
+      Final quote provided after reviewing your website and scope.*
+    </div>
+
+    <p>
+Accessibility improves reach, protects reputation, strengthens UX and often improves SEO as a by-product.
+But more importantly — it makes your product usable by more people.
+    </p>
+
+    <p>
+If you’d like your site reviewed, hit one of the buttons below.
+    </p>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-actions">
+    <a class="btn" href="index.html">Back to Home</a>
+    <a class="btn" href="tel:07561107909">Call</a>
+    <a class="btn" href="mailto:testladltd@gmail.com">Email</a>
+  </div>
+</footer>
+
+</body>
+</html>
