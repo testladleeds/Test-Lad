@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Accessibility Testing — Test Lad</title>
+  <title>Test Lad — Freelance QA</title>
 
   <style>
     :root {
       --bg: #F2D14D;
       --text: #000;
-      --max-width: 900px;
+      --max-width: 1000px;
+      --gap: 24px;
       --sticky-footer-h: 96px;
     }
 
@@ -28,42 +29,113 @@
       padding: 32px 24px calc(var(--sticky-footer-h) + 48px);
     }
 
+    /* HEADER */
     header {
       text-align: center;
-      margin-bottom: 48px;
+      font-family: ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", "Segoe UI",
+                   system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.05;
+      margin-bottom: 24px;
     }
 
-    header h1 {
-      font-size: clamp(36px, 6vw, 60px);
+    header .line-1 { font-size: clamp(26px, 4vw, 40px); margin: 0; font-weight: 800; }
+    header .line-2 { font-size: clamp(56px, 8vw, 90px); margin: 6px 0; font-weight: 900; }
+    header .line-3 { font-size: clamp(22px, 3.5vw, 34px); margin: 0; font-weight: 800; }
+
+    /* PROMO */
+    .promo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin: 28px 0 36px;
+    }
+
+    .promo-burst { width: 110px; height: auto; }
+
+    .promo-rate {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-weight: 700;
+    }
+
+    .rate { font-size: clamp(30px, 4.5vw, 42px); line-height: 1; }
+    .rate-copy { font-size: clamp(16px, 2.3vw, 20px); line-height: 1.2; }
+
+    /* SECTIONS */
+    .section {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--gap);
+      align-items: center;
+      margin: 32px 0;
+    }
+
+    .section.reverse { grid-template-columns: 1fr 2fr; }
+
+    .copy {
+      font-size: clamp(16px, 2.3vw, 20px);
+      line-height: 1.35;
+      white-space: pre-line;
       margin: 0;
-      font-weight: 900;
     }
 
-    header p {
-      font-size: clamp(18px, 2.5vw, 22px);
-      margin-top: 12px;
+    .side-image {
+      width: 100%;
+      max-width: 260px;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+
+    /* LONG COPY */
+    .long-copy {
+      margin-top: 64px;
+      text-align: center;
+      font-size: clamp(16px, 2.3vw, 20px);
+      line-height: 1.45;
+    }
+
+    .long-copy p {
+      margin: 0 0 36px;
+    }
+
+    .long-copy p:last-child { margin-bottom: 0; }
+
+    /* LOGO SECTION (IN PAGE FLOW) */
+    .tested-for-section {
+      margin-top: 64px;
+      text-align: center;
+    }
+
+    .tested-for-title {
+      font-size: 2em;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .logo-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .logo-row img {
+      height: 80px;
+      width: auto;
+      max-width: 250px;
+      object-fit: contain;
+    }
+
+    .many-more {
+      margin-top: 16px;
+      font-size: 2em;
       font-weight: 600;
     }
 
-    .content {
-      font-size: clamp(16px, 2.2vw, 20px);
-      line-height: 1.6;
-    }
-
-    .content p {
-      margin-bottom: 28px;
-    }
-
-    .price-box {
-      margin: 48px 0;
-      padding: 24px;
-      border: 2px solid #000;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 22px;
-      text-align: center;
-    }
-
+    /* STICKY FOOTER (CALL / EMAIL) */
     footer {
       position: fixed;
       bottom: 0;
@@ -80,7 +152,6 @@
       display: flex;
       justify-content: center;
       gap: 16px;
-      flex-wrap: wrap;
     }
 
     .btn {
@@ -92,94 +163,99 @@
       font-size: 18px;
       padding: 12px 24px;
       border-radius: 999px;
-      min-width: 160px;
+      min-width: 120px;
       text-align: center;
+    }
+
+    /* MOBILE */
+    @media (max-width: 720px) {
+      .promo { flex-direction: column; }
+
+      .section,
+      .section.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .section .side-image { order: -1; }
+
+      .logo-row { gap: 14px; }
     }
   </style>
 </head>
 
 <body>
-
 <main class="wrap">
 
   <header>
-    <h1>Accessibility Testing</h1>
-    <p>Practical WCAG audits. No fluff. Just clarity.</p>
+    <p class="line-1">Freelance QA Resource</p>
+    <p class="line-2">Test Lad</p>
+    <p class="line-3">Leeds-Based Manual Software Tester</p>
   </header>
 
-  <section class="content">
+  <section class="promo">
+    <img class="promo-burst" src="promo-burst.png" alt="">
+    <div class="promo-rate">
+      <div class="rate">£250/day</div>
+      <div class="rate-copy">for all bookings<br>made before<br>March 2026!</div>
+    </div>
+  </section>
 
-    <p>
-Accessibility isn’t a “nice to have”. It’s not a final polish. It’s not a plugin.
-It’s fundamental.
+  <section class="section">
+    <p class="copy">
+This Lad has over a decade in Test.
+And with most of that spent in Agencies, I’m used to pressure.
+Whether it’s a straight-up “Does this work?!” or the nuance of “...BUT DOES IT WORK ON EVERYTHING???” - been there, done it.
     </p>
+    <img class="side-image" src="section-1.png" alt="">
+  </section>
 
-    <p>
-For over a decade I’ve worked in digital teams where accessibility was either taken seriously — or ignored until it became a problem.
-Ignoring it is risky. Legally. Commercially. Ethically.
-    </p>
+  <section class="section reverse">
+    <img class="side-image" src="section-2.png" alt="">
+    <p class="copy">
+You can fire me the details and leave me to work remote, or get me on-site alongside your Project Managers, Devs and whoever else.
+This ain’t no Click "Run" And Sit Back automation, this is hands-on, confirming ad hoc specifics and real-world expectations.
+This time tomorrow, your product could be a lot safer - hit me up.
+    </p><br>
+  </section>
 
-    <p>
-I audit websites against WCAG (Web Content Accessibility Guidelines), currently aligned with WCAG 2.1 standards, identifying where your product does — and doesn’t — meet expected compliance levels.
-    </p>
+  <section class="long-copy">
+    <p>Whether you've got pre-existing <b>User Stories</b> and <b>Test Scripts</b> or need the whole shebang writing from scratch, I'm down. End-of-project <b>Test Reports</b> to put minds at ease? Just ask.</p>
+    <br><p>Need someone who's willing to give Every staging environment and Every Damn Browser the same effort and attention? "Effort and Attention" is my middle name! Well, it's James, but you get me...</p>
+    <br><p>Let me know your preference of working, I'm flexible and experienced across a range of reporting platforms and methodologies.</p>
+    <br><p>We can keep it <b>Functional</b>, or, say the word and <b>Non-Functional Testing</b> can be unleashed! I've helped brands achieve <b><a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1">WCAG</a></b> standing, sped up site performance, helped improve <b>UX/UI</b>, and even re-written cross-site copy when needed. </p><br>
+    <br><p>Feel free to drop me into a team to hit-the-ground-running, or collaborate with your in-house Testers on whatever they need (I mean, unless it's Automation, I ain't the lad for that sorry).</p>
+    <br><p>It all starts with a <b>tap of that button down there</b>...</p>
+  </section>
 
-    <p>
-That means:
-• Keyboard navigation testing  
-• Screen reader compatibility checks  
-• Colour contrast validation  
-• Focus state verification  
-• Semantic structure review  
-• Form and error handling accessibility  
-• Real-world usability assessment beyond automated tools  
-    </p>
+  <!-- LOGOS IN CORE CONTENT -->
+  <section class="tested-for-section">
+    <div class="tested-for-title">I've tested for...</div>
 
-    <p>
-Automated tools catch maybe 30–40% of issues. The rest require manual review, experience, and context.
-That’s where I come in.
-    </p>
-
-    <p>
-You’ll receive a structured report outlining:
-• Each issue  
-• The relevant WCAG reference  
-• Severity  
-• Recommended fix guidance  
-• Evidence screenshots where useful  
-    </p>
-
-    <p>
-No fear tactics. No checkbox theatre.
-Just clear, prioritised insight so your developers can act.
-    </p>
-
-    <div class="price-box">
-      WCAG Audit from £500  
-      <br><br>
-      *Entry-level pricing for small sites.  
-      Final quote provided after reviewing your website and scope.*
+    <div class="logo-row">
+      <img src="asdamoney-logo.png" alt="">
+      <img src="uefa-logo.png" alt="">
+      <img src="medicalprotection-logo.png" alt="">
+      <img src="handm-logo.png" alt="">
+      <img src="lner-logo.png" alt="">
     </div>
 
-    <p>
-Accessibility improves reach, protects reputation, strengthens UX and often improves SEO as a by-product.
-But more importantly — it makes your product usable by more people.
-    </p>
+    <div class="logo-row">
+      <img src="capit-logo.png" alt="">
+      <img src="wella-logo.png" alt="">
+      <img src="scottishbooktrust-logo.png" alt="">
+      <img src="letterland-logo.png" alt="">
+    </div>
 
-    <p>
-If you’d like your site reviewed, hit one of the buttons below.
-    </p>
-
+    <div class="many-more">...and many more</div>
   </section>
 
 </main>
 
 <footer>
   <div class="footer-actions">
-    <a class="btn" href="index.html">Back to Home</a>
     <a class="btn" href="tel:07561107909">Call</a>
     <a class="btn" href="mailto:testladltd@gmail.com">Email</a>
   </div>
 </footer>
-
 </body>
 </html>
